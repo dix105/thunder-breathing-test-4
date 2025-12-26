@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Simpsons Character Generator | AI Effect Generator</title>
+    <meta name="description" content="Turn your photo into an iconic Simpsons character with our free AI tool. Instant transformation, high-quality results.">
+    <meta name="keywords" content="simpsons generator, ai cartoon, photo to cartoon, springfield avatar, yellow character, simpsonize me, ai avatar creator, cartoon filter, vector art ai, simpsons style">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Simpsons Character Generator">
+    <meta property="og:description" content="Turn your photo into an iconic Simpsons character with our free AI tool.">
+    <meta property="og:image" content="images/hero-bg.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Simpsons Character Generator">
+    <meta name="twitter:description" content="Turn your photo into an iconic Simpsons character with our free AI tool.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <span class="logo-text">AI Simpsons Character Generator</span>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <nav>
+            <a href="#playground">Generator</a>
+            <a href="#how-to-use">How it Works</a>
+            <a href="#gallery">Examples</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#faq">FAQ</a>
+            <a href="#playground" class="btn btn-sm btn-nav">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-image">
+            <img src="images/hero-bg.jpg" alt="Springfield Style Landscape">
+        </div>
+        <div class="hero-bg-animation" id="hero-animation">
+            <!-- Animated elements injected via JS -->
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content fade-in-up">
+            <h1 class="hero-title">SIMPSONIZE YOURSELF</h1>
+            <p class="hero-subtitle">Want to see yourself as a Simpsons character? Our AI instantly transforms any photo into a yellow-skinned Springfield icon.</p>
+            <button class="btn btn-lg cta-pulse" onclick="document.getElementById('playground').scrollIntoView({behavior: 'smooth'})">SIMPSONIZE ME NOW</button>
+        </div>
+    </section>
+
+    <!-- Playground Section -->
+    <section id="playground">
+        <div class="container">
+            <div class="section-header">
+                <h2>CREATE YOUR CHARACTER</h2>
+                <p>Upload a photo and let our AI transport you to Springfield.</p>
+            </div>
+
+            <div class="playground-grid">
+                <!-- Left: Upload Control -->
+                <div class="control-panel card">
+                    <h3>1. Upload Photo</h3>
+                    <div id="upload-zone" class="upload-zone">
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                        <div class="upload-placeholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            <p>Drag & Drop or Click to Upload</p>
+                        </div>
+                        <img id="preview-image" class="hidden" alt="Upload Preview">
+                    </div>
+                    <div class="actions">
+                        <button id="reset-btn" class="btn btn-secondary hidden">Reset</button>
+                        <button id="generate-btn" class="btn btn-primary" disabled>Generate Character</button>
+                    </div>
+                </div>
+
+                <!-- Right: Result Display -->
+                <div class="result-panel card">
+                    <h3>2. Your Result</h3>
+                    <div id="result-container" class="result-display">
+                        <div id="result-placeholder" class="placeholder-content">
+                            <span class="emoji">🍩</span>
+                            <p>Result will appear here</p>
+                        </div>
+                        <div id="loading-state" class="hidden">
+                            <div class="spinner"></div>
+                            <p>Processing...</p>
+                        </div>
+                        <img id="result-final" class="hidden" alt="Simpsons Character Result">
+                    </div>
+                    <button id="download-btn" class="btn btn-primary hidden">Download Image</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="how-to-use">
+        <div class="container">
+            <div class="section-header">
+                <h2>HOW IT WORKS</h2>
+                <p>Three simple steps to become a cartoon icon.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card box">
+                    <div class="step-number">1</div>
+                    <h3>Upload Photo</h3>
+                    <p>Select a clear photo of yourself or a friend. Front-facing photos work best for the transformation.</p>
+                </div>
+                <div class="step-card box">
+                    <div class="step-number">2</div>
+                    <h3>AI Processing</h3>
+                    <p>Our advanced AI analyzes your features and redraws them in the iconic yellow style with bold outlines.</p>
+                </div>
+                <div class="step-card box">
+                    <div class="step-number">3</div>
+                    <h3>Download</h3>
+                    <p>Save your new character image and share it on social media or use it as your new profile picture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>THE GALLERY</h2>
+                <p>Check out these citizens of Springfield.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item card wobble-card">
+                    <img src="images/gallery-result-1.jpg" alt="Man in Simpsons style with white shirt and tie">
+                </div>
+                <div class="gallery-item card wobble-card">
+                    <img src="images/gallery-result-2.jpg" alt="Woman in Simpsons style with tall blue hair">
+                </div>
+                <div class="gallery-item card wobble-card">
+                    <img src="images/gallery-result-3.jpg" alt="Teenager in Simpsons style with skateboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>WHAT PEOPLE SAY</h2>
+                <p>Real reviews from our users.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card card">
+                    <p class="quote">"I turned my whole family into Simpsons characters for our Christmas card. Everyone loved it! Best AI tool I've used."</p>
+                    <div class="author">
+                        <strong>Sarah Jenkins</strong>
+                        <span>Graphic Designer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card card">
+                    <p class="quote">"The accuracy is hilarious. It captured my beard and glasses perfectly while making me look like I belong in Moe's Tavern."</p>
+                    <div class="author">
+                        <strong>Mike Ross</strong>
+                        <span>Software Engineer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card card">
+                    <p class="quote">"Super fast and easy to use. I've been using these for my team's Slack avatars and it's been a huge hit."</p>
+                    <div class="author">
+                        <strong>Elena Rodriguez</strong>
+                        <span>HR Manager</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>FAQ</h2>
+                <p>Common questions about the generator.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item card">
+                    <button class="faq-question">
+                        Is this service free to use?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, our basic generator is completely free to use. You can create as many characters as you like.</p>
+                    </div>
+                </div>
+                <div class="faq-item card">
+                    <button class="faq-question">
+                        What kind of photos work best?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>High-resolution photos with good lighting work best. Front-facing portraits with a clear view of the face yield the most accurate results.</p>
+                    </div>
+                </div>
+                <div class="faq-item card">
+                    <button class="faq-question">
+                        How long does the generation take?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most images are processed within 10-15 seconds, depending on server load and image complexity.</p>
+                    </div>
+                </div>
+                <div class="faq-item card">
+                    <button class="faq-question">
+                        Do you store my photos?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, we value your privacy. Uploaded images are processed in real-time and deleted from our servers shortly after generation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">AI Simpsons Character Generator</span>
+                    <p>&copy; 2023 AI Simpsons Character Generator. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <button data-modal-target="privacy">Privacy Policy</button>
+                    <button data-modal-target="terms">Terms of Service</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="privacy-modal" class="modal hidden">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="close-modal" data-modal-close="privacy">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2>Privacy Policy</h2>
+                <p><strong>Last Updated:</strong> 2023</p>
+
+                <h4>1. Data Collection</h4>
+                <p>We collect only the minimum data necessary:</p>
+                <ul>
+                  <li>Images you upload for processing (temporarily stored)</li>
+                  <li>Basic usage analytics (non-personal)</li>
+                  <li>Browser type and device information</li>
+                </ul>
+
+                <h4>2. Image Processing</h4>
+                <p>Your uploaded images are:</p>
+                <ul>
+                  <li>Processed securely on our servers</li>
+                  <li>Automatically deleted within 24 hours</li>
+                  <li>Never shared with third parties</li>
+                  <li>Not used for AI training without consent</li>
+                </ul>
+
+                <h4>3. Data Security</h4>
+                <p>All data transmission is encrypted using SSL/TLS protocols.</p>
+
+                <h4>4. Cookies</h4>
+                <p>We use essential cookies only for site functionality.</p>
+
+                <h4>5. Your Rights</h4>
+                <p>You have the right to request deletion of any stored data.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="modal hidden">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h3>Terms of Service</h3>
+                <button class="close-modal" data-modal-close="terms">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2>Terms of Service</h2>
+                <p><strong>Last Updated:</strong> 2023</p>
+
+                <h4>1. Acceptance of Terms</h4>
+                <p>By using this service, you agree to these Terms.</p>
+
+                <h4>2. Service Description</h4>
+                <p>This service provides AI-powered image transformation. Provided "as-is" without warranties.</p>
+
+                <h4>3. Acceptable Use</h4>
+                <p>You agree NOT to upload:</p>
+                <ul>
+                  <li>Illegal or unlawful content</li>
+                  <li>Explicit, pornographic, or obscene material</li>
+                  <li>Content depicting violence or harm</li>
+                  <li>Images you do not have rights to use</li>
+                </ul>
+
+                <h4>4. Intellectual Property</h4>
+                <p>You retain full ownership of your original images. Generated effects are royalty-free for personal and commercial use.</p>
+
+                <h4>5. Limitation of Liability</h4>
+                <p>We are not liable for any damages arising from the use of this service.</p>
+
+                <h4>6. Modifications</h4>
+                <p>We may update these terms at any time. Continued use constitutes acceptance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
